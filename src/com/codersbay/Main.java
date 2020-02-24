@@ -1,35 +1,29 @@
 package com.codersbay;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
         int[] unsorted = {5, 4, 1, 9, 6, 7, 3, 2, 8};
-        int countRight = 1;
-        int countLeft = 1;
+        int startOfUnsorted = 1;
         int temp;
 
-        while (countRight < unsorted.length) {
-            for (int j = countRight; j > 0; j--) {
-
-                if (unsorted[j] < unsorted[j - countLeft]) {
+        while (startOfUnsorted < unsorted.length) {
+            for (int j = startOfUnsorted; j > 0; j--) {
+                if (unsorted[j] < unsorted[j - 1]) {
                     temp = unsorted[j];
-                    unsorted[j] = unsorted[j - countLeft];
-                    unsorted[j - countLeft] = temp;
+                    unsorted[j] = unsorted[j - 1];
+                    unsorted[j - 1] = temp;
                 }
-           /*     System.out.println("countRight "+countRight);
-                System.out.println("countLeft "+countLeft);
-                System.out.println("countPos "+j);
-                for (int p : unsorted) {
-                    System.out.print(p + " ");
-                }
-                System.out.println(); */
             }
-            countRight++;
+            startOfUnsorted++;
         }
         /* print the sorted array */
-        for (int p : unsorted) {
+ /*       for (int p : unsorted) {
             System.out.print(p + " ");
-        }
+        }*/
+        System.out.println(Arrays.toString(unsorted));
 
     }
 
